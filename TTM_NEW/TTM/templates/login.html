@@ -1,0 +1,28 @@
+{% extends 'index.html'%}
+{% block 'b1' %}
+<h2 align="center"><font color="DarkGoldenRod" size="6x"> LOGIN PAGE </font></h2>
+<br>
+<br>
+<form method="post" action="{% url 'checkadminlogin'%}">
+ {% csrf_token %}
+<table align="center" border="1">
+ <tr>
+  <td><label>ENTER USERNAME :</label></td>
+   <td><input type="text" name="uname" required/> </td>
+ </tr>
+ <tr>
+  <td><label>ENTER PASSWORD :</label></td>
+  <td><input type="password" name="pwd" required/></td>
+ </tr>
+ <tr>
+  <td align="center"><input type="submit" value="Login"></td>
+  <td align="center"><input type="reset" value="Clear"></td>
+ </tr>
+</table>
+ </form>
+<div>
+ {% for i in messages%}
+ <h4><font color="red">{{i}}</font></h4>
+ {% endfor %}
+</div>
+{% endblock %}
